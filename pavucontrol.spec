@@ -4,7 +4,7 @@ Name:		pavucontrol
 Version:	0.9.3
 Release:	1
 License:	GPL v2+
-Group:		Applications/Sound
+Group:		X11/Applications/Sound
 Source0:	http://0pointer.de/lennart/projects/pavucontrol/%{name}-%{version}.tar.gz
 # Source0-md5:	fbbaf95f3224e1441077381fa350a413
 Patch0:		%{name}-desktop.patch
