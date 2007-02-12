@@ -1,5 +1,5 @@
 Summary:	PulseAudio Volume Control
-Summary(pl):	PulseAudio Volume Control - sterowanie g³o¶no¶ci± PulseAudio
+Summary(pl.UTF-8):   PulseAudio Volume Control - sterowanie gÅ‚oÅ›noÅ›ciÄ… PulseAudio
 Name:		pavucontrol
 Version:	0.9.4
 Release:	1
@@ -23,11 +23,11 @@ control tool ("mixer") for the PulseAudio sound server. In contrast to
 classic mixer tools this one allows you to control both the volume of
 hardware devices and of each playback stream seperately.
 
-%description -l pl
+%description -l pl.UTF-8
 PulseAudio Volume Control (pavucontrol) to proste, oparte na GTK+,
-narzêdzie do regulacji g³o¶no¶ci ("mikser") dla serwera d¼wiêku
-PulseAudio. W przeciwieñstwie do klasycznych mikserów pozwala
-regulowaæ g³o¶no¶æ urz±dzeñ sprzêtowych, jak i ka¿dego odtwarzanego
+narzÄ™dzie do regulacji gÅ‚oÅ›noÅ›ci ("mikser") dla serwera dÅºwiÄ™ku
+PulseAudio. W przeciwieÅ„stwie do klasycznych mikserÃ³w pozwala
+regulowaÄ‡ gÅ‚oÅ›noÅ›Ä‡ urzÄ…dzeÅ„ sprzÄ™towych, jak i kaÅ¼dego odtwarzanego
 strumienia osobno.
 
 %prep
