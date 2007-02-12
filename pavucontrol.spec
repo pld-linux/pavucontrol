@@ -1,5 +1,5 @@
 Summary:	PulseAudio Volume Control
-Summary(pl.UTF-8):   PulseAudio Volume Control - sterowanie głośnością PulseAudio
+Summary(pl.UTF-8):	PulseAudio Volume Control - sterowanie głośnością PulseAudio
 Name:		pavucontrol
 Version:	0.9.4
 Release:	1
