@@ -1,20 +1,8 @@
---- pavucontrol-0.9.3/src/pavucontrol.desktop.orig	2006-06-21 01:44:05.000000000 +0200
-+++ pavucontrol-0.9.3/src/pavucontrol.desktop	2006-08-26 21:19:10.631085250 +0200
-@@ -2,11 +2,15 @@
- Version=1.0
- Encoding=UTF-8
- Name=PulseAudio Volume Control
-+Name[pl]=Regulacja głośności PulseAudio
- GenericName=Volume Control
-+GenericName[en_GB]=Volume Control
-+GenericName[pl]=Regulacja głośności
- Comment=Adjust the volume level
-+Comment[pl]=Regulacja poziomu głośności
- Exec=pavucontrol
+--- pavucontrol-0.9.3/src/pavucontrol.desktop.in.orig	2006-06-21 01:44:05.000000000 +0200
++++ pavucontrol-0.9.3/src/pavucontrol.desktop.in	2006-08-26 21:19:10.631085250 +0200
+@@ -8,4 +8,4 @@
  Icon=multimedia-volume-control
  StartupNotify=true
  Type=Application
 -Categories=Application;AudioVideo;Audio;
--GenericName[en_GB]=Volume Control
 +Categories=GTK;AudioVideo;Audio;
-+# vi:encoding=utf-8
