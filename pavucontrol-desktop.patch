@@ -1,8 +1,0 @@
---- pavucontrol-0.9.3/src/pavucontrol.desktop.in.orig	2006-06-21 01:44:05.000000000 +0200
-+++ pavucontrol-0.9.3/src/pavucontrol.desktop.in	2006-08-26 21:19:10.631085250 +0200
-@@ -8,4 +8,4 @@
- Icon=multimedia-volume-control
- StartupNotify=true
- Type=Application
--Categories=Application;AudioVideo;Audio;
-+Categories=GTK;AudioVideo;Audio;
