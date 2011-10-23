@@ -1,12 +1,12 @@
 #
 # Conditional build:
 %bcond_with	gtk2	# GTK+ 2.x instead of 3.x
-#
+
 Summary:	PulseAudio Volume Control
 Summary(pl.UTF-8):	PulseAudio Volume Control - sterowanie głośnością PulseAudio
 Name:		pavucontrol
 Version:	1.0
-Release:	1
+Release:	2
 License:	GPL v2+
 Group:		X11/Applications/Sound
 Source0:	http://freedesktop.org/software/pulseaudio/pavucontrol/%{name}-%{version}.tar.xz
@@ -60,9 +60,10 @@ strumienia osobno.
 
 %install
 rm -rf $RPM_BUILD_ROOT
-
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
+
+%{__rm} -r $RPM_BUILD_ROOT%{_docdir}/%{name}
 
 %find_lang %{name}
 
