@@ -14,7 +14,7 @@ Source0:	http://freedesktop.org/software/pulseaudio/pavucontrol/%{name}-%{versio
 URL:		http://freedesktop.org/software/pulseaudio/pavucontrol/
 BuildRequires:	autoconf >= 2.62
 BuildRequires:	automake >= 1:1.11
-BuildRequires:	gettext-devel
+BuildRequires:	gettext-tools
 BuildRequires:	intltool >= 0.35.0
 BuildRequires:	libsigc++-devel >= 2.0.0
 BuildRequires:	pkgconfig
