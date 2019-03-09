@@ -2,7 +2,7 @@ Summary:	PulseAudio Volume Control
 Summary(pl.UTF-8):	PulseAudio Volume Control - sterowanie głośnością PulseAudio
 Name:		pavucontrol
 Version:	4.0
-Release:	1
+Release:	2
 License:	GPL v2+
 Group:		X11/Applications/Sound
 Source0:	http://freedesktop.org/software/pulseaudio/pavucontrol/%{name}-%{version}.tar.xz
@@ -19,7 +19,7 @@ BuildRequires:	pkgconfig
 BuildRequires:	pulseaudio-devel >= 5.0
 BuildRequires:	tar >= 1:1.22
 BuildRequires:	xz
-Requires:	canberra-gtk3 >= 0.16
+Requires:	libcanberra-gtk3 >= 0.16
 Requires:	pulseaudio-libs >= 5.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
