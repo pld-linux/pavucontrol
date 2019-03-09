@@ -1,34 +1,26 @@
-#
-# Conditional build:
-%bcond_with	gtk2	# GTK+ 2.x instead of 3.x
-
 Summary:	PulseAudio Volume Control
 Summary(pl.UTF-8):	PulseAudio Volume Control - sterowanie głośnością PulseAudio
 Name:		pavucontrol
-Version:	3.0
-Release:	2
+Version:	4.0
+Release:	1
 License:	GPL v2+
 Group:		X11/Applications/Sound
 Source0:	http://freedesktop.org/software/pulseaudio/pavucontrol/%{name}-%{version}.tar.xz
-# Source0-md5:	176308d2c03f8f3a7b2bd4f4d284fe71
+# Source0-md5:	9dcc2c76292e7e5e075d51b8dcb20202
 URL:		http://freedesktop.org/software/pulseaudio/pavucontrol/
 BuildRequires:	autoconf >= 2.62
 BuildRequires:	automake >= 1:1.11
 BuildRequires:	gettext-tools
+BuildRequires:	gtkmm3-devel >= 3.0.0
 BuildRequires:	intltool >= 0.35.0
+BuildRequires:	libcanberra-gtk3-devel >= 0.16
 BuildRequires:	libsigc++-devel >= 2.0.0
 BuildRequires:	pkgconfig
-BuildRequires:	pulseaudio-devel >= 3.0
+BuildRequires:	pulseaudio-devel >= 5.0
 BuildRequires:	tar >= 1:1.22
 BuildRequires:	xz
-%if %{with gtk2}
-BuildRequires:	gtkmm-devel >= 2.16.0
-BuildRequires:	libcanberra-gtk-devel >= 0.16
-%else
-BuildRequires:	gtkmm3-devel >= 3.0.0
-BuildRequires:	libcanberra-gtk3-devel >= 0.16
-%endif
-Requires:	pulseaudio-libs >= 0.9.16
+Requires:	canberra-gtk3 >= 0.16
+Requires:	pulseaudio-libs >= 5.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -54,8 +46,6 @@ strumienia osobno.
 %{__autoheader}
 %{__automake}
 %configure \
-	CXXFLAGS="%{rpmcxxflags} -std=gnu++11" \
-	%{?with_gtk2:--disable-gtk3} \
 	--disable-lynx \
 	--disable-silent-rules
 %{__make}
