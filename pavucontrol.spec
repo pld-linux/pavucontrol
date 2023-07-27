@@ -20,6 +20,7 @@ BuildRequires:	pkgconfig
 BuildRequires:	pulseaudio-devel >= 5.0
 BuildRequires:	tar >= 1:1.22
 BuildRequires:	xz
+Requires(post,postun):	desktop-file-utils
 Requires:	gtkmm3 >= 3.22
 Requires:	libcanberra-gtk3 >= 0.16
 Requires:	pulseaudio-libs >= 5.0
@@ -65,6 +66,12 @@ mv $RPM_BUILD_ROOT%{_datadir}/locale/nb{_NO,}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
+
+%post
+%update_desktop_database_post
+
+%postun
+%update_desktop_database_postun
 
 %files -f %{name}.lang
 %defattr(644,root,root,755)
