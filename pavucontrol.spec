@@ -1,27 +1,28 @@
 Summary:	PulseAudio Volume Control
 Summary(pl.UTF-8):	PulseAudio Volume Control - sterowanie głośnością PulseAudio
 Name:		pavucontrol
-Version:	5.0
-Release:	2
+Version:	6.0
+Release:	1
 License:	GPL v2+
 Group:		X11/Applications/Sound
 Source0:	https://freedesktop.org/software/pulseaudio/pavucontrol/%{name}-%{version}.tar.xz
-# Source0-md5:	a4a5dc51dcf4d912443faf3fe8d32b55
+# Source0-md5:	021ff562b18f5458a3911a40f9bd20ef
 URL:		https://freedesktop.org/software/pulseaudio/pavucontrol/
-BuildRequires:	autoconf >= 2.62
-BuildRequires:	automake >= 1:1.11
+BuildRequires:	gcc >= 6:4.6
 BuildRequires:	gettext-tools
-BuildRequires:	gtkmm3-devel >= 3.22
-BuildRequires:	intltool >= 0.35.0
+BuildRequires:	gtkmm4-devel >= 4.0
 BuildRequires:	json-glib-devel >= 1.0
 BuildRequires:	libcanberra-gtk3-devel >= 0.16
-BuildRequires:	libsigc++-devel >= 2.0.0
+BuildRequires:	libsigc++3-devel
+BuildRequires:	libstdc++ >= 6:8
+BuildRequires:	meson >= 0.50.0
+BuildRequires:	ninja
 BuildRequires:	pkgconfig
 BuildRequires:	pulseaudio-devel >= 5.0
+BuildRequires:	rpmbuild(macros) >= 1.736
 BuildRequires:	tar >= 1:1.22
 BuildRequires:	xz
 Requires(post,postun):	desktop-file-utils
-Requires:	gtkmm3 >= 3.22
 Requires:	libcanberra-gtk3 >= 0.16
 Requires:	pulseaudio-libs >= 5.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -43,20 +44,14 @@ strumienia osobno.
 %setup -q
 
 %build
-%{__intltoolize}
-%{__aclocal} -I m4
-%{__autoconf}
-%{__autoheader}
-%{__automake}
-%configure \
-	--disable-lynx \
-	--disable-silent-rules
-%{__make}
+%meson build \
+	-Dlynx=false
+
+%ninja_build -C build
 
 %install
 rm -rf $RPM_BUILD_ROOT
-%{__make} install \
-	DESTDIR=$RPM_BUILD_ROOT
+%ninja_install -C build
 
 %{__rm} -r $RPM_BUILD_ROOT%{_docdir}/%{name}
 
@@ -75,7 +70,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files -f %{name}.lang
 %defattr(644,root,root,755)
-%doc README
+%doc build/doc/README.html
 %attr(755,root,root) %{_bindir}/pavucontrol
-%{_datadir}/pavucontrol
-%{_desktopdir}/pavucontrol.desktop
+%{_desktopdir}/org.pulseaudio.pavucontrol.desktop
+%{_datadir}/metainfo/org.pulseaudio.pavucontrol.metainfo.xml
