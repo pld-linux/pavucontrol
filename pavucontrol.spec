@@ -12,18 +12,18 @@ BuildRequires:	gcc >= 6:4.6
 BuildRequires:	gettext-tools
 BuildRequires:	gtkmm4-devel >= 4.0
 BuildRequires:	json-glib-devel >= 1.0
-BuildRequires:	libcanberra-gtk3-devel >= 0.16
-BuildRequires:	libsigc++3-devel
-BuildRequires:	libstdc++ >= 6:8
+BuildRequires:	libcanberra-devel >= 0.16
+BuildRequires:	libsigc++3-devel >= 3.0
+BuildRequires:	libstdc++-devel >= 6:8
 BuildRequires:	meson >= 0.50.0
-BuildRequires:	ninja
+BuildRequires:	ninja >= 1.5
 BuildRequires:	pkgconfig
 BuildRequires:	pulseaudio-devel >= 5.0
 BuildRequires:	rpmbuild(macros) >= 1.736
 BuildRequires:	tar >= 1:1.22
 BuildRequires:	xz
 Requires(post,postun):	desktop-file-utils
-Requires:	libcanberra-gtk3 >= 0.16
+Requires:	libcanberra >= 0.16
 Requires:	pulseaudio-libs >= 5.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -51,11 +51,12 @@ strumienia osobno.
 
 %install
 rm -rf $RPM_BUILD_ROOT
+
 %ninja_install -C build
 
 %{__rm} -r $RPM_BUILD_ROOT%{_docdir}/%{name}
 
-mv $RPM_BUILD_ROOT%{_datadir}/locale/nb{_NO,}
+%{__mv} $RPM_BUILD_ROOT%{_datadir}/locale/nb{_NO,}
 
 %find_lang %{name}
 
