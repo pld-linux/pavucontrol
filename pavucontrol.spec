@@ -5,9 +5,9 @@ Version:	6.0
 Release:	1
 License:	GPL v2+
 Group:		X11/Applications/Sound
-Source0:	https://freedesktop.org/software/pulseaudio/pavucontrol/%{name}-%{version}.tar.xz
+Source0:	https://www.freedesktop.org/software/pulseaudio/pavucontrol/%{name}-%{version}.tar.xz
 # Source0-md5:	021ff562b18f5458a3911a40f9bd20ef
-URL:		https://freedesktop.org/software/pulseaudio/pavucontrol/
+URL:		https://www.freedesktop.org/software/pulseaudio/pavucontrol/
 BuildRequires:	gcc >= 6:4.6
 BuildRequires:	gettext-tools
 BuildRequires:	gtkmm4-devel >= 4.0
