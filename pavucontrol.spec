@@ -44,15 +44,15 @@ strumienia osobno.
 %setup -q
 
 %build
-%meson build \
+%meson \
 	-Dlynx=false
 
-%ninja_build -C build
+%meson_build
 
 %install
 rm -rf $RPM_BUILD_ROOT
 
-%ninja_install -C build
+%meson_install
 
 %{__rm} -r $RPM_BUILD_ROOT%{_docdir}/%{name}
 
