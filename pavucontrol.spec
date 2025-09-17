@@ -1,12 +1,12 @@
 Summary:	PulseAudio Volume Control
 Summary(pl.UTF-8):	PulseAudio Volume Control - sterowanie głośnością PulseAudio
 Name:		pavucontrol
-Version:	6.1
+Version:	6.2
 Release:	1
 License:	GPL v2+
 Group:		X11/Applications/Sound
 Source0:	https://www.freedesktop.org/software/pulseaudio/pavucontrol/%{name}-%{version}.tar.xz
-# Source0-md5:	51743b9bc9eb01959bf3c770facc6555
+# Source0-md5:	d515163651b8272e500dfcac32c525dd
 URL:		https://www.freedesktop.org/software/pulseaudio/pavucontrol/
 BuildRequires:	gcc >= 6:4.6
 BuildRequires:	gettext-tools
@@ -23,6 +23,8 @@ BuildRequires:	rpmbuild(macros) >= 2.042
 BuildRequires:	tar >= 1:1.22
 BuildRequires:	xz
 Requires(post,postun):	desktop-file-utils
+Requires(post,postun):	gtk-update-icon-cache
+Requires:	hicolor-icon-theme
 Requires:	libcanberra >= 0.16
 Requires:	pulseaudio-libs >= 5.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -45,7 +47,7 @@ strumienia osobno.
 
 %build
 %meson \
-	-Dlynx=false
+	-Dlynx=disabled
 
 %meson_build
 
@@ -65,13 +67,17 @@ rm -rf $RPM_BUILD_ROOT
 
 %post
 %update_desktop_database_post
+%update_icon_cache hicolor
 
 %postun
 %update_desktop_database_postun
+%update_icon_cache hicolor
 
 %files -f %{name}.lang
 %defattr(644,root,root,755)
 %doc build/doc/README.html
 %attr(755,root,root) %{_bindir}/pavucontrol
 %{_desktopdir}/org.pulseaudio.pavucontrol.desktop
+%{_iconsdir}/hicolor/scalable/apps/org.pulseaudio.pavucontrol.svg
+%{_iconsdir}/hicolor/symbolic/apps/org.pulseaudio.pavucontrol-symbolic.svg
 %{_datadir}/metainfo/org.pulseaudio.pavucontrol.metainfo.xml
